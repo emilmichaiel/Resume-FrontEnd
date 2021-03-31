@@ -1,0 +1,19 @@
+<div class="card" *ngIf="!isLoading">
+  <img src="{{profile.profilePic}}" alt="profile-pic" class="image" loading="lazy">
+  <p class="name">{{profile.firstname}} {{profile.lastname}}</p>
+  <div>
+    <button mat-icon-button *ngIf="profile.facebook" (click)="navigate(profile.facebook)">
+      <i class="fab fa-facebook-f"></i>
+    </button>
+    <button mat-icon-button *ngIf="profile.github" (click)="navigate(profile.github)">
+      <i class="fab fa-github"></i>
+    </button>
+    <button mat-icon-button *ngIf="profile.linkedin" (click)="navigate(profile.linkedin)">
+      <i class="fab fa-linkedin-in"></i>
+    </button>
+  </div>
+</div>
+
+<div *ngIf="isLoading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>

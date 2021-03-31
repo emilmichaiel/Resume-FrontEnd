@@ -1,0 +1,51 @@
+<div class="mat-title">About</div>
+<mat-divider></mat-divider>
+
+<div *ngIf="!isLoading">
+  <div class="mat-body-2">
+    <p>{{profile.bio}}</p>
+  </div>
+  <div class="row">
+    <div>
+      <img src="{{profile.profilePic}}" alt="profile-pic" loading="lazy">
+    </div>
+    <div>
+      <mat-list>
+        <mat-list-item>
+          <div mat-line>Name</div>
+          <div mat-line>{{profile.firstname}} {{profile.lastname}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <div mat-line>Date of Birth</div>
+          <div mat-line>{{profile.dob | date}} ({{profile.dob | ydob}} Years old)</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <div mat-line>Degree</div>
+          <div mat-line>{{profile.degree}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <div mat-line>Country</div>
+          <div mat-line>{{profile.country}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <div mat-line>City</div>
+          <div mat-line>{{profile.city}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <div mat-line>Email</div>
+          <div mat-line>{{profile.email}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLoading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>

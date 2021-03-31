@@ -1,0 +1,37 @@
+<div class="mat-title">Resume</div>
+<mat-divider></mat-divider>
+
+<div *ngIf="!isLoading">
+  <div class="row">
+    <div *ngFor="let resume of resumes">
+      <div class="mat-title">{{resume.title}}</div>
+      <mat-divider></mat-divider>
+      <mat-card *ngFor="let content of resume.content | reverse">
+        <mat-card-title>{{content.name}}</mat-card-title>
+        <mat-card-subtitle>{{content.startDate}} <span *ngIf="content.endDate">- {{content.endDate}}</span>
+        </mat-card-subtitle>
+        <mat-card-subtitle *ngIf="content.url"><a href="{{content.url}}">Certificate link</a></mat-card-subtitle>
+        <mat-card-content *ngIf="content.description">
+          <p>{{content.description}}</p>
+        </mat-card-content>
+        <mat-card-content>
+          <div *ngIf="content.projects">
+            <mat-card-title>Projects</mat-card-title>
+            <ul>
+              <li *ngFor="let project of content.projects">
+                <strong>{{project.projectName}}:</strong>
+                {{project.projectDesc}}
+                <hr>
+              </li>
+            </ul>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLoading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+

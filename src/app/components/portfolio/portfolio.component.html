@@ -1,0 +1,35 @@
+<div class="mat-title">Portfolio</div>
+<mat-divider></mat-divider>
+
+<mat-form-field appearance="outline">
+  <mat-label>Filter</mat-label>
+  <mat-select [(ngModel)]="category">
+    <mat-option *ngFor="let categoy of categories" value="{{categoy}}">{{categoy}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div *ngIf="!isLoading">
+  <div class="row">
+    <div *ngFor="let portfolio of portfolios | filterPortfolio: category">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title (click)="openUrl(portfolio.url)">{{portfolio.title}}</mat-card-title>
+          <mat-card-subtitle>
+            <mat-chip-list>
+              <mat-chip *ngFor="let category of portfolio.categories"
+                        (click)="assignCategoryfilter(category)">{{category}}</mat-chip>
+            </mat-chip-list>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{portfolio.image}}" alt="{{portfolio.title}}" (click)="openUrl(portfolio.url)"
+             loading="lazy">
+        <mat-card-content>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLoading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>

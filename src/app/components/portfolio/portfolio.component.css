@@ -1,0 +1,29 @@
+.row {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+@media only screen and (min-width: 1103px) {
+  .row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  img {
+    height: 150px;
+  }
+}
+
+mat-card-title, img {
+  cursor: pointer;
+}
+
+mat-form-field {
+  width: 100%;
+}
+

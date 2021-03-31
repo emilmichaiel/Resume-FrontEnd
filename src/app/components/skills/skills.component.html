@@ -1,0 +1,25 @@
+<div class="mat-title">Skills</div>
+<mat-divider></mat-divider>
+
+<div *ngIf="!isLoading">
+  <div class="row">
+    <div *ngFor="let skill of skills">
+      <mat-list>
+        <div class="mat-title">{{skill.title}}</div>
+        <mat-divider></mat-divider>
+        <mat-list-item *ngFor="let content of skill.content">
+          <div mat-line>{{content.name}} ({{content.rate / 10}}/10)</div>
+          <div mat-line>
+            <mat-progress-bar mode="determinate" class="thick" value="{{content.rate}}"></mat-progress-bar>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLoading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+

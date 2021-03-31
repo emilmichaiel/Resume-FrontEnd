@@ -1,3 +1,9 @@
 export const environment = {
-  production: true
+  production: true,
+  apiEndPoint: {
+    profile: '',
+    portfolio: '',
+    resume: '',
+    skills: ''
+  }
 };

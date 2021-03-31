@@ -1,0 +1,43 @@
+<mat-nav-list>
+  <div mat-list-item
+       class="not-active"
+       routerLink=""
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}">
+    <button mat-button (click)="closeNav()">
+      <mat-icon>face</mat-icon>
+      <span>About</span>
+    </button>
+  </div>
+  <div mat-list-item
+       class="not-active"
+       routerLink="skills"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}">
+    <button mat-button (click)="closeNav()">
+      <mat-icon>code</mat-icon>
+      <span>Skills</span>
+    </button>
+  </div>
+  <div mat-list-item
+       class="not-active"
+       routerLink="resume"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}">
+    <button mat-button (click)="closeNav()">
+      <mat-icon>space_dashboard</mat-icon>
+      <span>Resume</span>
+    </button>
+  </div>
+  <div mat-list-item
+       class="not-active"
+       routerLink="portfolio"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}">
+    <button mat-button (click)="closeNav()">
+      <mat-icon>grid_view</mat-icon>
+      <span>Portfolio</span>
+    </button>
+  </div>
+</mat-nav-list>
+
